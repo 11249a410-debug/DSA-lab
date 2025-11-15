@@ -1,0 +1,63 @@
+Aim:
+Hashing using linear probing
+
+Algorithm:
+Compute index = key % SIZE
+If table[index] is empty → insert key
+Else
+Linear probe → index = (index + 1) % SIZE
+Repeat until empty slot found
+Insert the key in empty slot
+Display table
+
+Code:
+#include <stdio.h>
+#define SIZE 5
+
+int hashTable[SIZE];
+
+// Initialize hash table with -1
+void init() {
+    for(int i = 0; i < SIZE; i++)
+        hashTable[i] = -1;
+}
+
+// Insert key using linear probing
+void insert(int key) {
+    int index = key % SIZE;
+
+    while(hashTable[index] != -1) {  
+        index = (index + 1) % SIZE;  // Linear probing
+    }
+
+    hashTable[index] = key;
+}
+
+// Display hash table
+void display() {
+    printf("Hash Table:\n");
+    for(int i = 0; i < SIZE; i++)
+        printf("%d : %d\n", i, hashTable[i]);
+}
+
+int main() {
+    init();
+
+    insert(50);
+    insert(21);
+    insert(32);
+    insert(14);
+
+    display();
+
+    return 0;
+}
+
+
+Output:
+Hash Table:
+0: 50
+1: 21
+2: 32
+3: -
+4: 14
