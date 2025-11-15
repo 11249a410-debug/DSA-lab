@@ -1,0 +1,54 @@
+Aim:
+To implement stack operations (push, pop, display) using arrays.
+
+Algorithm:
+Initialize top = -1
+Push: If stack full, overflow; else insert
+Pop: If stack empty, underflow; else delete
+Display: Print all elements
+
+Code:
+#include <stdio.h>
+#define SIZE 5
+
+int stack[SIZE], top = -1;
+
+void push(int x) {
+if(top == SIZE - 1)
+printf("Stack Overflow\n");
+else
+stack[++top] = x;
+}
+
+void pop() {
+if(top == -1)
+printf("Stack Underflow\n");
+else
+printf("Popped: %d\n", stack[top--]);
+}
+
+void display() {
+if(top == -1) printf("Stack Empty\n");
+else {
+printf("Stack: ");
+for(int i = top; i >= 0; i--) printf("%d ", stack[i]);
+printf("\n");
+}
+}
+
+int main() {
+push(10);
+push(20);
+display();
+pop();
+display();
+return 0;
+}
+
+Output:
+Stack: 20 10
+Popped: 20
+Stack: 10
+
+Result:
+Stack using arrays implemented successfully.
