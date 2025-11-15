@@ -1,0 +1,305 @@
+Aim:
+implement the sorting in c
+
+Algorithms
+A) Selection Sort Algorithm
+Repeat for i = 0 to n–2
+Let min = i
+For j = i+1 to n–1
+f a[j] < a[min], update min
+Swap a[i] and a[min]
+End
+B) Heap Sort Algorithm
+Build a max heap
+For i = n–1 down to 1
+Swap a[0] and a[i]
+Heapify the reduced heap
+End
+C) Quick Sort Algorithm
+Select pivot (last element)
+Partition the array → elements < pivot to left
+Recursively quickSort(left partition)
+Recursively quickSort(right partition)
+D) Merge Sort Algorithm
+Divide array into two halves
+Recursively sort left half
+Recursively sort right half
+Merge both sorted halves
+
+Code:a. Selection Sort.
+#include <stdio.h>
+void selectionSort(int arr[], int n) {
+    int i, j, minIndex, temp;
+    for (i = 0; i < n - 1; i++) {
+        minIndex = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex])
+                minIndex = j;
+        }
+        // Swap
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    printf("Original array: ");
+    printArray(arr, n);
+    selectionSort(arr, n);
+    printf("Sorted array (Selection Sort): ");
+    printArray(arr, n);
+    return 0;
+}
+Output
+Original array: 64 25 12 22 11 
+Sorted array (Selection Sort): 11 12 22 25 64 
+
+B. Heap Sort
+#include <stdio.h>
+void heapify(int arr[], int n, int i) {
+    int largest = i;   // Initialize largest as root
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    int temp;
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+    if (largest != i) {
+        temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        heapify(arr, n, largest);
+    }
+}
+void heapSort(int arr[], int n) {
+    int temp;
+    // Build max heap
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+    // Extract elements from heap one by one
+    for (int i = n - 1; i > 0; i--) {
+        // Move current root to end
+        temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+        // Call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main() {
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    printf("Original array: ");
+    printArray(arr, n);
+    heapSort(arr, n);
+    printf("Sorted array (Heap Sort): ");
+    printArray(arr, n);
+    return 0;
+}
+Output
+Original array: 12 11 13 5 6 7 
+Sorted array (Heap Sort): 5 6 7 11 12 13 
+C. Quick Sort in C
+#include <stdio.h>
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high]; // pivot
+    int i = low - 1;  // Index of smaller element
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
+}
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main() {
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printf("Original array: ");
+    printArray(arr, n);
+    quickSort(arr, 0, n - 1);
+    printf("Sorted array (Quick Sort): ");
+    printArray(arr, n);
+    return 0;
+}
+Output 
+Original array: 10 7 8 9 1 5 
+Sorted array (Quick Sort): 1 5 7 8 9 10
+D. Merge sort in C
+#include <stdio.h>
+void merge(int arr[], int l, int m, int r) {
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
+    // Create temp arrays
+    int L[n1], R[n2];
+    // Copy data
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j];
+    i = 0; j = 0; k = l;
+    // Merge temp arrays back into arr[l..r]
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++];
+        } else {
+            arr[k++] = R[j++];
+        }
+    }
+    // Copy remaining elements of L[], if any
+    while (i < n1) {
+        arr[k++] = L[i++];
+    }
+    // Copy remaining elements of R[], if any
+    while (j < n2) {
+        arr[k++] = R[j++];
+    }
+}
+void mergeSort(int arr[], int l, int r) {
+    if (l < r) {
+        int m = l + (r - l) / 2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
+}
+void printArray(int arr[], int n) {
+    for (int i=0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main() {
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printf("Original array: ");
+    printArray(arr, n);
+    mergeSort(arr, 0, n - 1);
+    printf("Sorted array (Merge Sort): ");
+    printArray(arr, n);
+    return 0;
+}
+Output
+Original array: 12 11 13 5 6 7 
+Sorted array (Merge Sort): 5 6 7 11 12 13
+10. Hash Table
+#include <stdio.h>
+#define TABLE_SIZE 10
+int hashTable[TABLE_SIZE];
+// Initialize hash table with -1 (indicating empty)
+void initHashTable() {
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        hashTable[i] = -1;
+    }
+}
+// Simple hash function: key modulo table size
+int hashFunction(int key) {
+    return key % TABLE_SIZE;
+}
+// Insert key into hash table
+void insert(int key) {
+    int hashIndex = hashFunction(key);
+    int originalIndex = hashIndex;
+    // Linear probing in case of collision
+    while (hashTable[hashIndex] != -1) {
+        hashIndex = (hashIndex + 1) % TABLE_SIZE;
+        if (hashIndex == originalIndex) {
+            printf("Hash table is full, cannot insert %d\n", key);
+            return;
+        }
+    }
+    hashTable[hashIndex] = key;
+}
+// Search for a key in hash table, returns index or -1 if not found
+int search(int key) {
+    int hashIndex = hashFunction(key);
+    int originalIndex = hashIndex;
+    while (hashTable[hashIndex] != -1) {
+        if (hashTable[hashIndex] == key)
+            return hashIndex;
+        hashIndex = (hashIndex + 1) % TABLE_SIZE;
+        if (hashIndex == originalIndex)
+            break;
+    }
+    return -1;
+}
+// Display the hash table
+void display() {
+    printf("Hash Table:\n");
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        if (hashTable[i] == -1)
+            printf("[%d]: Empty\n", i);
+        else
+            printf("[%d]: %d\n", i, hashTable[i]);
+    }
+}
+int main() {
+    initHashTable();
+    insert(23);
+    insert(43);
+    insert(13);
+    insert(27);
+    insert(37);
+    display();
+    int key = 13;
+    int result = search(key);
+    if (result != -1)
+        printf("Key %d found at index %d\n", key, result);
+    else
+        printf("Key %d not found in hash table\n", key);
+    key = 50;
+    result = search(key);
+    if (result != -1)
+        printf("Key %d found at index %d\n", key, result);
+    else
+        printf("Key %d not found in hash table\n", key);
+    return 0;
+}
+Output:
+Hash Table:
+[0]: Empty
+[1]: 37
+[2]: 13
+[3]: 23
+[4]: 43
+[5]: 27
+[6]: Empty
+[7]: Empty
+[8]: Empty
+[9]: Empty
+Key 13 found at index 2
+Key 50 not found in hash table
