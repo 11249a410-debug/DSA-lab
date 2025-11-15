@@ -68,3 +68,6 @@ linearSearch(arr, n, key);
 binarySearch(arr, n, key);
 return 0;
 }
+
+Result:
+successfully implemented linear and binaey search.
