@@ -1,0 +1,70 @@
+Aim: Implement stack push/pop/peek using singly linked list (dynamic stack).
+
+Algorithm:
+Use head as top of stack.
+Push: create node and set its next to head; head= node.
+Pop: remove head node.
+
+Code:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node* topNode = NULL;
+
+void push(int x) {
+    Node* p = (Node*)malloc(sizeof(Node));
+    p->data = x; p->next = topNode;
+    topNode = p;
+    printf("%d pushed\n", x);
+}
+
+int pop() {
+    if (!topNode) { printf("Stack underflow\n"); return -1; }
+    int val = topNode->data;
+    Node* tmp = topNode;
+    topNode = topNode->next;
+    free(tmp);
+    return val;
+}
+
+int peek() {
+    if (!topNode) { printf("Stack empty\n"); return -1; }
+    return topNode->data;
+}
+
+void display() {
+    if (!topNode) { printf("Stack empty\n"); return; }
+    Node* cur = topNode;
+    printf("Stack top-> ");
+    while (cur) { printf("%d ", cur->data); cur = cur->next; }
+    printf("\n");
+}
+
+int main() {
+    push(1); push(2); push(3);
+    display();
+    printf("Popped: %d\n", pop());
+    printf("Top: %d\n", peek());
+    display();
+    return 0;
+}
+
+
+Sample Output:
+
+1 pushed
+2 pushed
+3 pushed
+Stack top-> 3 2 1 
+Popped: 3
+Top: 2
+Stack top-> 2 1 
+
+
+Result: Dynamic memory; no fixed max size.
