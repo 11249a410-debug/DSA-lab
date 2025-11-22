@@ -1,15 +1,27 @@
 Aim: 
 Search for a target value in an array using linear search.
 
-Algorithm (brief):
-Traverse array from index 0 to n-1.
-If element equals target, return index.
-If end reached, not found.
+Algorithm:
+Start
+Read the size of the array n.
+Declare an array A of size n.
+Input n elements into array A.
+Read the search element (key).
+Perform Linear Search:
+Set i = 0
+Repeat while i < n:
+If A[i] == key, then return i (position found)
+Else increase i by 1
+If loop ends → key not found, return -1
+Check returned value:
+If result = -1, display "Not found"
+Else display "Found at position result"
+Stop
 
 Code:
 #include<stdio.h>
 
-int linearsearch(int A[] , int n , int key){
+" int linearsearch(int A[] , int n , int key)" {
     for (int i =0 ; i<n;i++){
         if(A[i]==key){
             return i;
