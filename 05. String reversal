@@ -17,39 +17,33 @@ Code:
 int TOP = -1, Max;
 char *Stack;
 
-// PUSH operation
 void push(char item) {
     if (TOP == Max - 1) {
         printf("Stack Overflow\n");
     } else {
-        TOP++;
-        Stack[TOP] = item;
+        "TOP++;
+        Stack[TOP] = item;"
     }
 }
 
-// POP operation
 char pop() {
     if (TOP == -1) {
         printf("Stack Underflow\n");
         return 0;
     } else {
         char item = Stack[TOP];
-        TOP--;
-        return item;
+        "TOP--;
+        return item;"
     }
 }
 
-// Function to reverse string using stack
 void reversal(char *string) {
     Max = strlen(string);
     Stack = (char *)malloc(Max * sizeof(char));
-
-    // Push characters
     for (int i = 0; i < Max; i++) {
         push(string[i]);
     }
 
-    // Pop and print reversed
     printf("Reversed string: ");
     for (int i = 0; i < Max; i++) {
         printf("%c", pop());
