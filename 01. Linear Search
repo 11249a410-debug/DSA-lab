@@ -6,52 +6,52 @@ Traverse array from index 0 to n-1.
 If element equals target, return index.
 If end reached, not found.
 
-Code:#include <stdio.h>
-int main()
-{
-    int size, elementToFind, i;
-    printf("Enter the size of Data Set for Linear Search:");
-    scanf("%d",&size);
+Code:
+#include<stdio.h>
 
-    int searchSpace[size];
-    for(i=0; i<=size-1; i++)
-    {
-        printf("Enter the %d out of %d element in data set: ",i+1, size);
-        scanf("%d",&searchSpace[i]);
-    }
-
-    //printf("Given Dataset for Linear Search is: ");
-    for(int i=0; i<size; i++)
-    {
-        printf("%d - ",searchSpace[i]);
-    }
-
-    printf("\nEnter the element to find in the dataset: ");
-    scanf("%d",&elementToFind);
-    i =0;
-    while(i<size)
-    {
-        if(searchSpace[i] == elementToFind)
-        {
-            printf("Required element %d is found in the dataset at position %d or index %d",elementToFind, i+1, i);
-            return 0;
+int linearsearch(int A[] , int n , int key){
+    for (int i =0 ; i<n;i++){
+        if(A[i]==key){
+            return i;
         }
-        i++;
     }
-
-    printf("Required element %d is NOT found in the dataset!!!",elementToFind);
+    return -1;
 }
-Sample Output:
-Enter the size of Data Set for Linear Search:5
-Enter the 1 out of 5 element in data set: 1
-Enter the 2 out of 5 element in data set: 2
-Enter the 3 out of 5 element in data set: 3
-Enter the 4 out of 5 element in data set: 4
-Enter the 5 out of 5 element in data set: 5
-1 - 2 - 3 - 4 - 5 - 
-Enter the element to find in the dataset: 4
-Required element 4 is found in the dataset at position 4 or index 3
 
+int main(){
+    int n,key;
+    printf("enter the size of the array:");
+    scanf("%d",&n);
+    
+    int A[n];
+    printf("enter the elements in the array one by one:");
+    for (int i =0; i<n;i++){
+        scanf("%d",&A[n]);
+    }
+    
+    printf("enter the key to be searched in the array:");
+    scanf("%d",&key);
+    
+    int result = linearsearch(A,n,key);
+    
+    if(result == -1){
+        printf("Not found!!");
+    }
+    else{
+        printf("Found at %d position");
+        return 0;
+    }
+}
+
+Sample Output:
+enter the size of the array:5
+enter the elements in the array one by one:1
+2
+3
+4
+5
+enter the key to be searched in the array:6
+Not found!!
 
 Result:
 O(n) time; correct for unsorted arrays.
