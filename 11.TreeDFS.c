@@ -1,32 +1,27 @@
-Aim:
+/*Aim:
 To write a C program that creates a Binary Search Tree (BST)
 
 Algorithm:
 Step 1:
 Read n and then read n values.
-
 Step 2:
 Insert each value into the Binary Search Tree using insert().
-
 Step 3 — Preorder Traversal:
 Visit root
 Traverse left subtree
 Traverse right subtree
-
 Step 4 — Inorder Traversal:
 Traverse left subtree
 Visit root
 Traverse right subtree
-
 Step 5 — Postorder Traversal:
 Traverse left subtree
 Traverse right subtree
 Visit root
-
 Step 6:
 Display all three traversal results.
 
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -109,7 +104,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &value);
-        root = insert(root, value); // Insert dynamically into BST
+        root = insert(root, value); 
     }
 
     printf("Preorder Traversal: ");
@@ -121,8 +116,9 @@ int main()
     printf("\nPostorder Traversal: ");
     postorder(root);
     return 0;
-}
 
+}
+/*
 Output:
 The program successfully:
-Builds a Binary Search Tree from user input
+Builds a Binary Search Tree from user input*/
