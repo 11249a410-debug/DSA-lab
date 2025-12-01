@@ -1,4 +1,4 @@
-AIM
+/*AIM
 
 To write a C program to sort a list of numbers using the Quick Sort algorithm
 
@@ -20,7 +20,7 @@ Step 4 (Partition):
 4. Return the pivot index.
 
 Step 5: After Quick Sort finishes, print the sorted array.
-
+*/
 Code:
 #include <stdio.h>
 
@@ -79,8 +79,9 @@ int main()
         printf("%d ", list[i]);
 
     return 0;
-}
 
+}
+/*
 Output:
 Enter number of elements: 6
 Enter 6 elements:
@@ -88,4 +89,4 @@ Enter 6 elements:
 Sorted array (Quick Sort): 3 5 10 12 23 89
 
 Result:
-The program successfully sorts the given list of numbers in ascending order using the Quick Sort
+The program successfully sorts the given list of numbers in ascending order using the Quick Sort*/
