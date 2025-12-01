@@ -1,11 +1,11 @@
-//Aim: Find target in a sorted array using binary search.
+/*Aim: Find target in a sorted array using binary search.
 
 Algorithm:
 Set low=0, high=n-1.
 While low ≤ high: mid=(low+high)/2.
 If arr[mid]==key return mid; else adjust low/high.
 If not found return -1.
-//
+*/
 Code:
 #include <stdio.h>
 int main()
@@ -48,7 +48,7 @@ int main()
     
    return 0;
 }
-//
+/*
 Sample Output:
 Enter the size of array: 5
 Enter element 0 of 4: 1
@@ -64,4 +64,4 @@ Element found at index of 3 (i.e. at position 4)
 
 Result:
 O(log n) time; requires sorted array.
-//
+*/
