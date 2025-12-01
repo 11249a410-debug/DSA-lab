@@ -1,4 +1,4 @@
-//Aim: 
+/*Aim: 
 #Search for a target value in an array using linear search.
 
 #Algorithm:
@@ -17,11 +17,11 @@ Check returned value:
 If result = -1, display "Not found"
 Else display "Found at position result"
 Stop
-//
+*/
 Code:
 #include<stdio.h>
 
-" int linearsearch(int A[] , int n , int key)" {
+int linearsearch(int A[] , int n , int key) {
     for (int i =0 ; i<n;i++){
         if(A[i]==key){
             return i;
@@ -55,7 +55,8 @@ int main(){
     }
 }
 
-//Sample Output:
+/*
+Sample Output:
 enter the size of the array:5
 enter the elements in the array one by one:1
 2
@@ -67,4 +68,4 @@ Not found!!
 
 Result:
 O(n) time; correct for unsorted arrays.
-//
+*/
