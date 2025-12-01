@@ -1,4 +1,4 @@
-//Aim:
+/*Aim:
 To implement stack operations (push, pop, display) using arrays.
 
 Algorithm:
@@ -6,7 +6,7 @@ Initialize top = -1
 Push: If stack full, overflow; else insert
 Pop: If stack empty, underflow; else delete
 Display: Print all elements
-//
+*/
 Code:
 #include <stdio.h>
 #define SIZE 5
@@ -44,7 +44,7 @@ pop();
 display();
 return 0;
 }
-//
+/*
 Output:
 Stack: 20 10
 Popped: 20
@@ -52,4 +52,4 @@ Stack: 10
 
 Result:
 Stack using arrays implemented successfully.
-//
+*/
