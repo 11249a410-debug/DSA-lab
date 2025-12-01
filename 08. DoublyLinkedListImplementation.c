@@ -1,4 +1,4 @@
-Aim:
+/*Aim:
 To implement insertion, deletion, and display operations in a doubly linked list.
 
 Algorithm:
@@ -14,7 +14,7 @@ Set head->prev = NULL
 Free old head
 Display:
 Traverse from head and print data
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -115,6 +115,7 @@ int main() {
     deleteNode(&head, 100);  // Try deleting non-existent value
     return 0;
 }
+/*
 Output:
 List forward: 5 <-> 10 <-> 15 <-> 20 <-> NULL
 List backward: 20 <-> 15 <-> 10 <-> 5 <-> NULL
@@ -125,3 +126,4 @@ Value 100 not found in the list.
 
 Result:
 Doubly linked list operations were implemented successfully.
+*/
