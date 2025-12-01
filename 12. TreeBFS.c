@@ -1,4 +1,4 @@
-Aim:
+/*Aim:
 To write a C program that creates a Binary Search Tree (BST) 
 
 Algorithm:
@@ -21,7 +21,7 @@ While the queue is not empty:
 
 Step 5:
 Stop the program.
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -123,8 +123,9 @@ int main()
     levelOrder(root);
 
     return 0;
-}
 
+}
+/*
 Output:
 Enter number of elements: 7
 Enter 7 values:
@@ -135,3 +136,4 @@ Result:
 The program successfully:
 
 Builds a Binary Search Tree (BST) using user inputs.
+*/
