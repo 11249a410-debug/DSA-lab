@@ -1,10 +1,10 @@
-Aim: Implement stack push/pop/peek using singly linked list (dynamic stack).
+/*Aim: Implement stack push/pop/peek using singly linked list (dynamic stack).
 
 Algorithm:
 Use head as top of stack.
 Push: create node and set its next to head; head= node.
 Pop: remove head node.
-
+*/
 Code:
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ int main() {
     return 0;
 }
 
-
+/*
 Sample Output:
 
 1 pushed
@@ -68,3 +68,4 @@ Stack top-> 2 1
 
 
 Result: Dynamic memory; no fixed max size.
+*/
