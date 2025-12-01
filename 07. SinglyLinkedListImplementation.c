@@ -1,4 +1,4 @@
-Aim
+/*Aim
 
 To implement insertion, deletion, and display operations in a singly linked list.
 
@@ -16,7 +16,7 @@ Free deleted node
 Display:
 Traverse from head
 Print each node value
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -101,6 +101,8 @@ int main() {
     deleteNode(&head, 100);  // Try deleting a value not in list
     return 0;
 }
+
+/*
 Output
 Linked list: 5 -> 10 -> 15 -> 20 -> NULL
 Deleted 15 from the list.
@@ -109,3 +111,4 @@ Value 100 not found in the list.
 
 Result:
 Singly linked list operations were executed successfully. (Will continue in next update due to size limits).
+*/
