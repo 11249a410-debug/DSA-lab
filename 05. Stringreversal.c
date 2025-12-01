@@ -1,4 +1,4 @@
-Aim: Reverse a string using a stack.
+/* Aim: Reverse a string using a stack.
 
 Algorithm:
 start
@@ -8,7 +8,7 @@ Push all chars to stack.
 Pop them to form reversed string.
 display the reversed string
 end
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,10 +63,11 @@ int main() {
 
     return 0;
 }
-
+/*
 output:
 enter a string:Nandini
 reversed string:inidnaN
 
 result:
 Shows stack use; O(n) time, O(n) extra space.
+*/
