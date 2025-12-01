@@ -1,4 +1,4 @@
-Aim:
+//*Aim:
 To implement queue operations using arrays.
 
 Algorithm:
@@ -13,7 +13,8 @@ Increment front
 Display:
 If empty → print message
 Else print all elements from front to rear
-
+*/
+  
 Code:
 #include <stdio.h>
 #define SIZE 5
@@ -51,11 +52,11 @@ display();
 dequeue();
 display();
 }
-
+/*
 Output:
 Queue: 10 20
 Deleted: 10
 Queue: 20
 
 Result:
-Queue operations using arrays were successfully implemented.
+Queue operations using arrays were successfully implemented.*/
