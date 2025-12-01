@@ -1,4 +1,4 @@
-Aim:
+/*Aim:
 To write a C program that sorts an array of numbers in ascending order using the Merge Sort
 
 Algorithm:
@@ -26,11 +26,9 @@ Step 4 (Merge Function):
 
 Step 5:
 Print the sorted array.
-
+*/
 Code:
 #include <stdio.h>
-
-// Merge two sorted subarrays
 void merge(int arr[], int left, int mid, int right)
 {
     int i = left;
@@ -38,8 +36,6 @@ void merge(int arr[], int left, int mid, int right)
     int k = 0;
 
     int temp[right - left + 1];
-
-    // Merge logic
     while (i <= mid && j <= right)
     {
         if (arr[i] < arr[j])
@@ -47,20 +43,14 @@ void merge(int arr[], int left, int mid, int right)
         else
             temp[k++] = arr[j++];
     }
-
-    // Copy left-out elements
     while (i <= mid)
         temp[k++] = arr[i++];
 
     while (j <= right)
         temp[k++] = arr[j++];
-
-    // Copy temp back to original
     for (i = left, k = 0; i <= right; i++, k++)
         arr[i] = temp[k];
 }
-
-// Merge Sort function
 void mergeSort(int arr[], int left, int right)
 {
     if (left < right)
@@ -90,8 +80,9 @@ int main()
         printf("%d ", arr[i]);
 
     return 0;
-}
 
+}
+/*
 Output:
 Enter number of elements: 6
 Enter 6 elements:
@@ -99,4 +90,4 @@ Enter 6 elements:
 Sorted array (Merge Sort): 2 3 5 7 9 12
 
 Result:
-The program successfully sorts the given array in ascending order using the Merge Sort
+The program successfully sorts the given array in ascending order using the Merge Sort*/
