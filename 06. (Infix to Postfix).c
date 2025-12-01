@@ -1,4 +1,4 @@
-Aim:
+/*Aim:
 To convert an infix expression into postfix using stack.
 
 Algorithm:
@@ -6,7 +6,7 @@ Scan expression left to right
 If operand → add to postfix
 If operator → push to stack according to precedence
 Pop all operators to postfix at end
-
+*/
 Code:
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,6 +143,7 @@ int main()
     printf("Postfix notation is : %s", postfix);
     return 0;
 }
-
+/*
 Output:
 Postfix: ABC*+
+*/
