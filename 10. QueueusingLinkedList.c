@@ -1,10 +1,10 @@
-Aim: Implement queue using linked list with front and rear.
+/*Aim: Implement queue using linked list with front and rear.
 
 Algorithm:
 Maintain front and rear.
 Enqueue: create node, attach at rear, update rear.
 Dequeue: remove front node, update front.
-
+*/
 Code:
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ int main() {
     return 0;
 }
 
-
+/*
 Sample Output:
 
 10 enqueued
@@ -65,3 +65,4 @@ Queue: 20 30
 
 Result: Dynamic queue (no fixed capacity) with O(1) enqueue/dequeue.
 Graph traversal using BFS and DFS implemented successfully.
+*/
